@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+            background-size: 300% 300%;
+            height: 100vh;
+            animation: color 12s ease-in-out infinite;
+        }
+
+        @keyframes color {
+            0% {
+                background-position: 0 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        .main {
+            margin-top: 20px;
+            border-bottom: 5px solid white;
+            border-radius: 20%;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        h1 {
+            display: inline;
+            border-bottom: 5px double rgb(238, 231, 231);
+            border-radius: 20%;
+            color: rgb(22, 50, 51);
+        }
+
+        #d1 {
+            padding: 5px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 20px;
+            background-color: rgb(131, 155, 204);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        #a1 {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(41, 40, 38);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .main {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+            #d1 {
+                font-size: 18px;
+            }
+
+            button {
+                font-size: 18px;
+                padding: 8px;
+            }
+
+            #a1 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            label {
+                font-size: 18px;
+            }
+
+            #d1 {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 6px;
+            }
+
+            #a1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <div class="main">
+        <h1>Multiplication Table Generator</h1><br><br>
+        <label>Number:</label>
+        <input type="text" id="d1" autocomplete="off"><br><br>
+        <button type="button" onclick="Table()">Generate Table</button><br><br>
+    </div>
+
+    <br>
+    <div id="a1"></div>
+</center>
+
+<script>
+    function Table() {
+        let s1 = document.getElementById("d1").value;
+        document.getElementById("d1").value = "";
+        let s = "";
+        for (let j = 1; j <= 10; j++) {
+            s = s + " " + `${s1}×${j}=${s1 * j}<br>`;
+            document.getElementById("a1").innerHTML = s;
+        }
+    }
+</script>
+
+</body>
+</html>
